@@ -62,6 +62,7 @@ public class Practice1 {
 			int randomValue = (int)(Math.random() * 10) + 1;
 			System.out.println("randomValue : " + randomValue);
 		}
+		
 	}
 	
 	
