@@ -48,16 +48,23 @@ public class Practice1 {
 //		}
 		
 		// 1부터 1000까지 3이나 5의 배수의 합
-		int sum = 0;
-		for (int i = 1; i <= 1000; i++) {
-			if (i % 3 == 0 || i % 5 == 0) {
-				sum += i;
-			}
-		}
-		System.out.println("1부터 1000까지 합 : " + sum);
+//		int sum = 0;
+//		for (int i = 1; i <= 1000; i++) {
+//			if (i % 3 == 0 || i % 5 == 0) {
+//				sum += i;
+//			}
+//		}
+//		System.out.println("1부터 1000까지 합 : " + sum);
 		
 		System.out.println(print(1000));
+		
+		for (int i = 0; i < 50; i++) {
+			int randomValue = (int)(Math.random() * 10) + 1;
+			System.out.println("randomValue : " + randomValue);
+		}
 	}
+	
+	
 	
 	public static int print(int Max) {
 		int sum = 0;
