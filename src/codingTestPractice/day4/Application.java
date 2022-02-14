@@ -4,7 +4,7 @@ public class Application {
 
 	public static void main(String[] args) {
 		Solution sol = new Solution();
-		sol.solution(5);
+		System.out.println(sol.solution(5));
 	}
 
 }
