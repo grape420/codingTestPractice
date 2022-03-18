@@ -30,12 +30,18 @@ class Solution {
 //        return answer;
 //    }
 	public int[] solution(int[] array, int[][] commands) {
-        int[] answer = new int[commands.length];
-
-        for(int i=0; i<commands.length; i++){
-            int[] temp = Arrays.copyOfRange(array, commands[i][0]-1, commands[i][1]);
+        int[] answer = new int[commands.length];		// 3
+        
+        for(int i = 0; i < commands.length; i++){
+        	
+        	// 1. 배열 array의 i번째 숫자부터 j번째 숫자까지 자른다.
+            int[] temp = Arrays.copyOfRange(array, commands[i][0] - 1, commands[i][1]);
+            
+            // 2. 자른 배열을 정렬한다.
             Arrays.sort(temp);
-            answer[i] = temp[commands[i][2]-1];
+            
+            // 3. k번째에 있는 수를 구한다.
+            answer[i] = temp[commands[i][2] - 1];
         }
 
         return answer;
