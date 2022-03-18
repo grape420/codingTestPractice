@@ -1,8 +1,10 @@
 package codingTestPractice.day6;
 
-import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
-public class Solution {
+public class Solution2 {
 	
 	/*
 	 * 완주하지 못한 선수
@@ -19,30 +21,35 @@ public class Solution {
 		참가자 중에는 동명이인이 있을 수 있습니다.
 	 */
 	
-	public String solution(String[] particlpant, String[] completion) {
-		// 1. 두 배열을 정렬한다.
-		Arrays.sort(particlpant);
-		Arrays.sort(completion);
+	public String solution(String[] participant, String[] completion) {
+		String answer = "";
 		
-		System.out.println(Arrays.toString(particlpant));
-		System.out.println(Arrays.toString(completion));
-		
-		// 2. 두 배열이 다를 때 까지 찾는다.
-		int i = 0;
-		for (i = 0; i < completion.length; i++) {
-			if(!particlpant[i].equals(completion[i])) 
-				break;
-			System.out.println(i + "번째 선수 : " + particlpant[i]);
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		for (String player : participant) {
+			map.put(player, map.getOrDefault(player, 0) + 1);
 		}
 		
-		// 3. 여기까지 왔다는 것은 마지막 주자가 완주하지 못했다는 의미이다.
-		return particlpant[i];
+		for (String player : completion) {
+			map.put(player, map.get(player) - 1);
+		}
+
+		Iterator<Map.Entry<String, Integer>> iter = map.entrySet().iterator();
+		while(iter.hasNext()) {
+			Map.Entry<String, Integer> entry = iter.next();
+			if (entry.getValue() != 0) {
+				answer = entry.getKey();
+				break;
+			}
+		}
+		
+		return answer;
 	}
+	
 	
 	public static void main(String[] args) {
 		String[] part = {"marina", "josipa", "nikola", "vinko", "filipa"};
 		String[] comp = {"josipa", "filipa", "marina", "nikola"};
-		Solution sol = new Solution();
+		Solution2 sol = new Solution2();
 		System.out.println(sol.solution(part, comp));
 	}
 
