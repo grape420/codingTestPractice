@@ -11,8 +11,10 @@ public class Solution {
 	 */
 	
 	public String solution(int num) {
-        String answer = "";
-        return answer;
+        if(num %2 == 0) {
+			return ("Even");
+		} else
+			return ("Odd");
     }
 	
 
