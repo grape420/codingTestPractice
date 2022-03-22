@@ -21,7 +21,6 @@ public class Solution {
         
         return answer;
     }
-
 	
 	int gcd(int a, int b) {
 		while(b != 0) {
