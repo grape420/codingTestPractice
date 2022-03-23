@@ -1,6 +1,8 @@
 package codingTestPractice.day11;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Solution {
 
@@ -17,13 +19,31 @@ public class Solution {
 	 */
 
 	public int[] solution(int[] arr) {
-        int[] answer = new int[arr.length];
-
-        for (int i = 0; i < arr.length; i++) {
-        	Math.min(arr[i], arr[i + 1]);
-        }
-
-        return answer;
+		// sort를 이용해서 최솟값 가져오기    
+		int[] temp = arr.clone();
+		Arrays.sort(temp);
+		int min = temp[0];
+		//ArrayList를 이용하여 최솟값과 같지 않은 수만 추가
+		List<Integer> list = new ArrayList<Integer>();
+		for (int i = 0; i < arr.length; i++) {
+			if(arr[i] != min) {
+				list.add(arr[i]);
+			}
+		}
+		
+		int[] answer;
+		// 경우를 나눠서 배열에 값을 저장하기		
+		if(list.size() == 0) {
+			answer = new int[1];
+			answer[0] = -1;
+		} else {
+			answer = new int[list.size()];
+			for (int i = 0; i < list.size(); i++) {
+				answer[i] = list.get(i);
+			}
+		}
+		
+        return answer;        
     }
 
 	public static void main(String[] args) {
