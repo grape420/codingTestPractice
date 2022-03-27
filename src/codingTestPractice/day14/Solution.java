@@ -1,5 +1,7 @@
 package codingTestPractice.day14;
 
+import java.util.Arrays;
+
 public class Solution {
 	
 	/*
@@ -15,15 +17,28 @@ public class Solution {
 	 */
 	
 	public String solution(String s) {
-        String answer = "";
+        String answer = "";				// 반환할 문자열
+        String[] str = s.split("");		// 전달받은 문자열을 잘라서 배열에 담음
+        int index = 0;					// 짝수번째를 구분할 index 선언
         
-        
+        for (int i = 0; i < str.length; i++) {
+        	if (str[i].equals(" ")) {				// 문자열 중 공백이 있다면 index 0으로 초기화
+        		index = 0;
+        	} else if (index % 2 == 0) {			// index가 짝수라면 문자열 대문자로 바꾸고 index 증가 시켜 홀수로 만듦
+        		str[i] = str[i].toUpperCase();
+        		index++;
+        	} else if (index % 2 != 0) {			// index가 홀수라면 문자열 소문자로 바꾸고 index 증가 시켜 짝수로 만듦
+        		str[i] = str[i].toLowerCase();
+        		index++;
+        	}
+        	answer += str[i];			// 대소문자 바꾼 배열을 문자열로 합침
+        }
         return answer;
     }
 	
 	public static void main(String[] args) {
 		Solution sol = new Solution();
-		String s = "try hello world";
+		String s = "try hello worlds";
 		
 		sol.solution(s);
 	}
