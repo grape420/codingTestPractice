@@ -18,6 +18,30 @@ public class Solution {
 	
 	public String solution(String s, int n) {
         String answer = "";
+        int mod = n % 26;			// n이 26을 넘어갈 경우 26으로 나누어 나머지를 구한다.
+        
+        for (int i = 0; i < s.length(); i++) {
+        	char temp = s.charAt(i);
+        	
+        	if (temp != ' ') {								 // 값이 비어있지 않을 경우
+        		if (temp >= 'a' && temp <= 'z') {			 // 소문자인 경우
+        			if (temp + mod > 'z') {					 // 더했을 때 소문자 z를 넘어가는 경우
+    					answer += (char)(temp + mod - 26);			 // 26을 뺌(알파벳은 26글자 이기 때문)
+    				} else {
+    					answer += (char)(temp + mod);				 // 더한 값을 String 문자열에 담음 
+    				}
+        		} else {									 // 대문자인 경우
+        			if(temp + mod > 'Z') {					 // 더했을 때 대문자 Z를 넘어가는 경우
+        				answer += (char)(temp + mod - 26);			 // 26을 뺌(알파벳은 26글자 이기 때문)
+        			} else {
+        				answer += (char)(temp + mod);
+        			}
+        		}
+        	} else {										// 값이 비어있을 경우 비어있는 값 리턴
+				answer += temp;
+			}
+        }
+        
         return answer;
     }
 	
