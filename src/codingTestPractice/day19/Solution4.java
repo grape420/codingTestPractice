@@ -23,20 +23,18 @@ public class Solution4 {
 	
 	public String[] solution(String[] strings, int n) {
 		String[] answer = {};
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<String>();			// strings 문자열을 담을 ArrayList 생성
 		
 		for (int i = 0; i < strings.length; i++) {
-			list.add(strings[i].charAt(n) + strings[i]);
+			list.add(strings[i].charAt(n) + strings[i]);		// ArrayList에 인덱스 n번째 글자를 앞에 붙여 strings 문자열을 담는다. 
 		}
-		Collections.sort(list);
-		System.out.println("list : " + list);
+		Collections.sort(list);									// 정렬 (n번째 글자가 동일해도 뒤에 문자는 사전순으로 정렬된다.)
 		
 		answer = new String[list.size()];
 		
-		for (int i = 0; i < list.size(); i++) {
-			answer[i] = list.get(i).substring(1, list.get(i).length());
+		for (int i = 0; i < list.size(); i++) {					// ArraysList에 문자열들을 다시 String 배열에 옮겨 담는 작업
+			answer[i] = list.get(i).substring(1, list.get(i).length());		// 옮겨 담을 때 처음 붙인 인덱스 n번째 글자를 자르고 담는다.
 		}
-		System.out.println(Arrays.toString(answer));
 		
 		return answer;
     }
