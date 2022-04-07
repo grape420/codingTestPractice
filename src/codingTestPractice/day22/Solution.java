@@ -21,14 +21,39 @@ public class Solution {
 	 */
 	
 	public String solution(int a, int b) {
-        String answer = "";
-        return answer;
+        /*
+         * 1일 - 6 (금)
+         * 2일 - 7 (토)
+         * 3일 - 1 (일)
+         * 4일 - 2 (월)
+         * 5일 - 3 (화)
+         * 6일 - 4 (수)
+         * 7일 - 5 (목)
+         * 
+         * 31일 - 1월, 3월, 5월, 7월, 8월, 10월, 12월
+         * 30일 - 4월, 6월, 9월, 11월
+         * 29일 - 2월
+         */
+
+        int[] months = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        String[] days = {"SUN","MON","TUE","WED","THU","FRI","SAT"};
+        
+        int totalDay = 0;
+        
+        // 월마다 일수 더해주기 
+        for (int i = 1; i < a; i++) {
+        	totalDay += months[i - 1];
+        }
+        
+        totalDay += b - 1;
+        
+        return days[(totalDay + 5) % 7];		// 1월 1일이 금요일이므로 + 5로 초기값 설정
     }
 	
 	public static void main(String[] args) {
 		Solution sol = new Solution();
 		int a = 5;
-		int b = 24;
+		int b = 1;
 		
 		sol.solution(a, b);
 	}
