@@ -1,5 +1,7 @@
 package codingTestPractice.day29;
 
+import java.util.Arrays;
+
 public class Solution2 {
 	
 	/*
