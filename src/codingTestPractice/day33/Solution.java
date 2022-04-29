@@ -43,6 +43,7 @@ public class Solution {
         if(id.length() <= 2) // 2자 이하라면 3자까지 마지막 문자추가 
             while(id.length() < 3)
                 id += id.charAt(id.length() - 1);
+		
 
         return id;
     }
