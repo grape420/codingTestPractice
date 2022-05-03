@@ -34,6 +34,7 @@ public class Solution {
         int zero = 0;
         int matched = 0;
         
+        
         for (int l : lottos) {
             if (l == 0) zero++;
             else {
