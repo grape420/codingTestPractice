@@ -1,5 +1,8 @@
 package codingTestPractice.day36;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class Main {
@@ -20,22 +23,44 @@ public class Main {
 			입력 시간은 24시간 표현을 사용한다. 24시간 표현에서 하루의 시작은 0:0(자정)이고, 끝은 23:59(다음날 자정 1분 전)이다. 시간을 나타낼 때, 불필요한 0은 사용하지 않는다.
 		 */
 		
-		Scanner sc = new Scanner(System.in);
+		// 풀이 1
+//		Scanner sc = new Scanner(System.in);
+//		
+//		System.out.print("시를 입력하세요 : ");
+//		int hour = sc.nextInt();
+//		System.out.print("분을 입력하세요 : ");
+//		int minute = sc.nextInt();
+//		
+//		sc.close();
+//		
+//		if (minute < 45) {
+//			hour--;
+//			minute = 60 - (45 - minute);
+//			if (hour < 0) hour = 23;
+//			System.out.println(hour + " : " + minute);
+//		} else {
+//			System.out.println(hour + " : " + (minute - 45));
+//		}
 		
-		System.out.print("시를 입력하세요 : ");
-		int hour = sc.nextInt();
-		System.out.print("분을 입력하세요 : ");
-		int minute = sc.nextInt();
+		// 풀이 2
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		sc.close();
-		
-		if (minute < 45) {
-			hour--;
-			minute = 60 - (45 - minute);
-			if (hour < 0) hour = 23;
-			System.out.println(hour + " : " + minute);
-		} else {
-			System.out.println(hour + " : " + (minute - 45));
+		System.out.print("시간을 입력하세요 : ");
+		try {
+			String[] str = br.readLine().split(" ");
+			int hour = Integer.valueOf(str[0]);
+			int minute = Integer.valueOf(str[1]);
+			
+			if (minute < 45) {
+				hour--;
+				minute = 60 - (45 - minute);
+				if (hour < 0) hour = 23;
+				System.out.println(hour + " : " + minute);
+			} else {
+				System.out.println(hour + " : " + (minute - 45));
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 		
 		
