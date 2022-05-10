@@ -34,28 +34,24 @@ public class Main {
 		for (int i = 1; i <= N; i++) {
 			A[i] = i;
 		}
-		System.out.println(Arrays.toString(A));
+		System.out.println("전 : " + Arrays.toString(A));
 		
 		// N의 제곱근까지 반복
-		for (int i = 2; i < Math.sqrt(N); i++) {
+		for (int i = 2; i <= Math.sqrt(N); i++) {
 			// 소수가 아니면 넘어감
 			if (A[i] == 0) continue;
 			// 소수의 배수 값을 N까지 반복
-			for (int j = i + i; j <= N; j = j + i) {
-				System.out.print("i : " + i + ", j : " + j + " ");
+			for (int j = i + i; j <= N; j += i) {
+				System.out.println("i : " + i + ", j : " + j + " ");
 				A[j] = 0;
 			}
 		}
-		
+		System.out.println("후 : " + Arrays.toString(A));
 		for (int i = M; i <= N; i++) {
 			// 소수만 출력
 			if (A[i] != 0) {
 				System.out.println(A[i]);
 			}
 		}
-		
-		
-		
 	}
-
 }
