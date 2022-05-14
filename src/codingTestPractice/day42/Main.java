@@ -1,6 +1,5 @@
 package codingTestPractice.day42;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -28,19 +27,17 @@ public class Main {
 		System.out.print("자연수 N을 입력하세요 : ");
 		
 		int N = sc.nextInt();
-		int[] arr = new int[N];
 		int start = 1, end = 1, count = 1, sum = 1;
 		
-		System.out.println(Arrays.toString(arr));
 		while (end != N) {
-			if (sum < N) {
+			if (sum == N) {
+				count++;
 				end++;
 				sum += end;
 			} else if (sum > N) {
 				sum -= start;
 				start++;
-			} else if (sum == N){
-				count++;
+			} else{
 				end++;
 				sum += end;
 			}
