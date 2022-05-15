@@ -1,5 +1,6 @@
 package codingTestPractice.day42;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -28,7 +29,6 @@ public class Main {
 		
 		int N = sc.nextInt();
 		int start = 1, end = 1, count = 1, sum = 1;
-		
 		while (end != N) {
 			if (sum == N) {
 				count++;
