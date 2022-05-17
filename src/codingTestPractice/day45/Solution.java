@@ -1,6 +1,7 @@
 package codingTestPractice.day45;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class Solution {
@@ -68,13 +69,26 @@ public class Solution {
 		
 		// 3. value가 0이 아닌 마지막 주자를 찾는다.
 		// map.keySet() : map이 가지고 있는 key를 배열 형태로 반환
-		for (String key : map.keySet()) {
-			/*
-			 * map에서 value가 0이 아닌 player를 찾는다. (완주하지 못한 선수)
-			 * 찾으면 answer에 넣고 break로 나간다.
-			 */
-			if (map.get(key) != 0) {
-				answer = key;
+//		for (String key : map.keySet()) {
+//			/*
+//			 * map에서 value가 0이 아닌 player를 찾는다. (완주하지 못한 선수)
+//			 * 찾으면 answer에 넣고 break로 나간다.
+//			 */
+//			if (map.get(key) != 0) {
+//				answer = key;
+//				break;
+//			}
+//		}
+		
+		// 3-1. EntrySet를 이용한 방법
+		// iter.next() : let = 1 (key와 value가 함께 나옴)
+		Iterator<Map.Entry<String, Integer>> iter = map.entrySet().iterator();
+		
+		// 다음 값이 없을 때까지 반복
+		while (iter.hasNext()) {
+			Map.Entry<String, Integer> entry = iter.next();			// entry.getKey() : leo, kiki, eden | entry.getValue() : 1, 0, 0
+			if (entry.getValue() != 0) {
+				answer = entry.getKey();
 				break;
 			}
 		}
