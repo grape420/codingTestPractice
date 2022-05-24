@@ -1,5 +1,11 @@
 package codingTestPractice.day47;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+
 public class Solution {
 	
 	/*
@@ -34,33 +40,38 @@ public class Solution {
 		첫 번째 전화번호, “12”가 두 번째 전화번호 “123”의 접두사입니다. 따라서 답은 false입니다.
 	 */
 	
-	public static boolean solution(String[] phone_book) {
-    	//phone_book의 마지막 전 원소까지 반복
-    	for(int i=0; i<phone_book.length -1; i++) {
-    		//String.hashCode(): 문자열의 해쉬코드 반환
-    		//i번째 전화번호에 해쉬코드 부여
-    		int hashPhone = phone_book[i].hashCode();
-    		int len = phone_book[i].length();
-    		
-    		//j는 i+1부터 phone_book의 마지막 원소까지 탐색, i가 증가할 때마다 초기화
-    		for(int j=i+1; j< phone_book.length; j++) {
-    			//i번째 전화번호보다 j번째 전화번호의 길이가 길고,
-    			//i번째 전화번호의 길이만큼 j번째 전화번호의 substring의 해쉬값이 같음.(j가 i 문자열로 시작)
-    			if(phone_book[j].length() >=len && 
-    					hashPhone == (phone_book[j].substring(0, len).hashCode())){
-    				return false;
-    			}
-    			//j번째 전화번호보다 i번째 전화번호의 길이가 길고,
-    			//j번째 전화번호의 길이만큼 i번째 전화번호의 substring의 해쉬값이 같음.(i가 j 문자열로 시작)
-    			else if(phone_book[j].length()<len && 
-    					phone_book[i].substring(0, phone_book[j].length())
-    					.hashCode() == phone_book[j].hashCode()) {
-    				return false;
-    			}
+	public boolean solution(String[] phone_book) {
+//        // 풀이 1 (sort & loop)
+//        // 1. phone_book을 정렬한다.
+//        Arrays.sort(phone_book);
+//        
+//        // 2. 반복문을 돌면서 앞 번호가 뒷 번호의 접두어인지 확인
+//        for (int i = 0; i < phone_book.length - 1; i++) {
+//        	if (phone_book[i + 1].startsWith(phone_book[i])) {
+//        		return false;
+//        	}
+//        }
+//
+//        // 3. 여기까지 오지 못했다면 접두어가 없다는 뜻이다.
+//        return true;
+		
+		// 풀이 2 (hashMap)
+		Map<String, Integer> map = new HashMap<>();
+		
+		for (String phone : phone_book) {
+			map.put(phone, map.getOrDefault(phone, 0) + 1);
+		}
+		System.out.println(map);
+		
+		for (int i = 0; i < phone_book.length; i++) {
+			for (int j = 1; j < phone_book[i].length(); j++) {
+				if (map.containsKey(phone_book[i].substring(0, j))) {
+					return false;
+				}
 			}
-    	}
-    	//위 상황에 해당하는 case가 없으면 true 반환
-        return true;
+		}
+		
+		return true;
     }
 	
 	public static void main(String[] args) {
