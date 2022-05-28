@@ -1,8 +1,13 @@
 package codingTestPractice.day49;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		
 		/*
 		 * 백준 1940 주몽
@@ -20,7 +25,34 @@ public class Main {
 			출력
 			첫째 줄에 갑옷을 만들 수 있는 개수를 출력한다.
 		 */
-		
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        int n = Integer.parseInt(reader.readLine());
+        int m = Integer.parseInt(reader.readLine());
+
+        int[] material = new int[n];
+        StringTokenizer st = new StringTokenizer(reader.readLine());
+        for (int i=0; i<n; i++) {
+            material[i] = Integer.parseInt(st.nextToken());
+        }
+
+        int cnt = 0;
+        for(int start=0; start<n; start++)  {
+            int sum = 0;
+            int end = start+1;
+
+            while (end<n) {
+                sum = material[start];
+                sum += material[end++];
+                if (sum == m) {
+                    cnt++;
+                    break;
+                }
+            }
+
+        }
+
+        System.out.println(cnt);
 		
 	}
 
