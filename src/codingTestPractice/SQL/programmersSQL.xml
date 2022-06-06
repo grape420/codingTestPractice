@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper>
+ 	<select id="모든 레코드 조회하기">
+ 		SELECT
+		       a.ANIMAL_ID
+		     , a.ANIMAL_TYPE
+		     , a.DATETIME
+		     , a.INTAKE_CONDITION
+		     , a.NAME
+		     , SEX_UPON_INTAKE
+		  FROM ANIMAL_INS a
+		 ORDER BY ANIMAL_ID 
+ 	</select>
+ </mapper>
