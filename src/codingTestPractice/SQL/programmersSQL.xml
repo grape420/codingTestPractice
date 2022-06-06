@@ -15,4 +15,31 @@
 		  FROM ANIMAL_INS a
 		 ORDER BY ANIMAL_ID 
  	</select>
+ 	
+ 	<select id="역순 정렬하기">
+ 		SELECT
+		       a.NAME
+		     , a.DATETIME
+		  FROM ANIMAL_INS a
+		 ORDER BY a.ANIMAL_ID DESC
+ 	</select>
+ 	
+ 	<select id="아픈 동물 찾기">
+ 		SELECT
+		       a.ANIMAL_ID
+		     , a.NAME
+		  FROM ANIMAL_INS a
+		 WHERE a.INTAKE_CONDITION = 'Sick'
+		 ORDER BY a.ANIMAL_ID
+ 	</select>
+ 	
+ 	<select id="어린 동물 찾기">
+ 		SELECT
+		       a.ANIMAL_ID
+		     , a.NAME
+		  FROM ANIMAL_INS a
+		 WHERE a.INTAKE_CONDITION != 'Aged'
+		 ORDER BY a.ANIMAL_ID
+ 	</select>
+ 	
  </mapper>
