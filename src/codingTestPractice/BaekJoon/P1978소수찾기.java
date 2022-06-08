@@ -3,6 +3,7 @@ package codingTestPractice.BaekJoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class P1978소수찾기 {
@@ -23,15 +24,32 @@ public class P1978소수찾기 {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		System.out.print("숫자를 하나 입력하세요 : ");
-		StringTokenizer st = new StringTokenizer(br.readLine());
-
-		int N = Integer.parseInt(st.nextToken());
-		for (int i = 0; i < N; i++) {
+		br.readLine();	// N 은 쓰지 않음.	
+		int count = 0;
+		
+		StringTokenizer st = new StringTokenizer(br.readLine()," ");
+		
+		while(st.hasMoreTokens()) {
+        
+			// 소수인경우 true, 아닌경우 false   
+			boolean isPrime = true;
 			
+			int num = Integer.parseInt(st.nextToken());
+			
+			if(num == 1) {
+				continue;
+			}
+			for(int i = 2; i <= Math.sqrt(num); i++) {
+				if(num % i == 0) {
+					isPrime = false;
+					break;
+				}
+			}
+			if(isPrime) {
+				count++;
+			}
 		}
-		
-		
+		System.out.println(count);
 	}
 
 }
