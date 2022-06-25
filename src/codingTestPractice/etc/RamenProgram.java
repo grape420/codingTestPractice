@@ -27,10 +27,6 @@ public class RamenProgram {
 
 }
 
-interface Runnable {
-	public void run();
-}
-
 class currentThread extends Thread {
 	public RamenCook ramenCook;
 	static String nam;
@@ -62,10 +58,8 @@ class RamenCook extends Thread implements Runnable {
 			}
 
 			for (int i = 0; i < burners.length; i++) {
-				if (!burners[i].equals("_")) {
-					continue;
-				}
-
+				if (!burners[i].equals("_")) continue;
+				
 				synchronized (this) {
 					// if(burners[i].equals("_"))
 					// {
@@ -102,7 +96,7 @@ class RamenCook extends Thread implements Runnable {
 	private void showBurners() {
 		String stringToPrint = "                                                             ";
 		for (int i = 0; i < burners.length; i++) {
-			stringToPrint += (" " + burners[i]);
+			stringToPrint += " " + burners[i];
 		}
 		System.out.println(stringToPrint);
 	}
