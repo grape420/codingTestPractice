@@ -47,6 +47,7 @@ public class P_K번째수 {
         return answer;
     }
 	
+	
 	public static void main(String[] args) {
 		P_K번째수 solution = new P_K번째수();
 		int[] array = {1, 5, 2, 6, 3, 7, 4};
