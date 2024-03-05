@@ -28,7 +28,6 @@ public class P배열중최댓값 {
 		}
 		
 		System.out.println("최댓값 : " + max);
-
 	}
 
 }
