@@ -1,7 +1,5 @@
 package codingTestPractice.Programmers;
 
-import java.util.Arrays;
-
 public class P배열중최댓값 {
 
 	public static void main(String[] args) {
