@@ -1,8 +1,6 @@
 package codingTestPractice.Programmers;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 public class PA로B만들기 {
 
