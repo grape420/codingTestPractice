@@ -1,4 +1,4 @@
-package codingTestPractice.day3.hard;
+package codingTestPractice.etc.day3.hard;
 
 import java.util.Scanner;
 

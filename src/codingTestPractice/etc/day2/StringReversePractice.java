@@ -1,4 +1,4 @@
-package codingTestPractice.day2;
+package codingTestPractice.etc.day2;
 
 public class StringReversePractice {
 

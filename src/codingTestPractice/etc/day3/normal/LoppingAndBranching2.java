@@ -1,4 +1,4 @@
-package codingTestPractice.day3.normal;
+package codingTestPractice.etc.day3.normal;
 
 public class LoppingAndBranching2 {
 

@@ -1,4 +1,4 @@
-package codingTestPractice.day1;
+package codingTestPractice.etc.day1;
 
 public class Practice1 {
 
